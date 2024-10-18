@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노션</title>
+    <link rel="stylesheet" href="./css/reset.css"> 
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js" integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+        // 드롭다운 메뉴 클릭 시 토글 처리
+        $('.dep > a').click(function(event) {
+            event.preventDefault(); // <a> 태그의 기본 동작 방지
+
+            var $this = $(this).parent();
+
+            
+            // 클릭된 메뉴가 열려 있지 않으면
+            if (!$this.hasClass('on')) {
+                $('.dep').removeClass('on').children('.depth2').stop().slideUp();
+                $this.addClass('on').children('.depth2').stop().slideDown();
+
+            } else {
+                $this.removeClass('on').children('.depth2').stop().slideUp();
+            }
+        });
+
+
+
+        // 메뉴 외부 클릭 시 닫기
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.dep').length) {
+                $('.dep').removeClass('on').children('.depth2').stop().slideUp();
+            }
+        });
+
+            $('.dep').click(function(event) {
+            event.stopPropagation(); // 메뉴 내부 클릭 시 외부 클릭 이벤트 전파 방지
+        });
+
+        // 호버 시 서브메뉴 보이기
+        $('.dep').hover(function() {
+            if (!$(this).hasClass('on')) {
+                $(this).children('.depth2').stop().slideDown();
+            }
+        }, function() {
+            if (!$(this).hasClass('on')) {
+                $(this).children('.depth2').stop().slideUp();
+            }
+        });
+
+
+
+            // var scrT = $(window).scrollTop();
+            // if(scrT >= 800){
+            //     alert('aaaa')
+            // } 
+            $(document).scroll(function(){
+                if($(this).scrollTop() > 3100 ) { 
+                console.log('aaa')
+                $('.card-box').animate({'margin-left':'0'},600)
+                $('.card-box .card').animate({'margin-left':'0' },600)
+            }else {
+                // $('.card-box .card:first-child').css({'left':'20%' })
+                $('.card-box').css({'margin-left':'240px'})
+                $('.card-box .card').css({'margin-left':'-300px' })
+            }
+            })
+
+        });
+    </script>
+    
+
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-wrap">
+            <div class="left-con">
+            <h1><a href="./index.html"><img src="./img/notion-icon.png" alt="Logo"></a></h1>
+            </div>
+            <div class="right-con">
+            <nav class="gnb">
+                <div class="middle-menu">
+                    <ul>
+                        <li><a href="#none">서비스 소개</a></li>
+                        <li class="dep"><a href="#" class="drop">기능</a>
+                            <ul class="depth2">
+                                <li><a href="#">기능</a></li>
+                                <li><a href="#">고객스토리</a></li>
+                                <li><a href="#">자주 쓰는 툴</a></li>
+                                <li><a href="#">새로운 기능</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">활용법</a></li>
+                        <li class="dep"><a href="#" class="drop">자료</a>
+                            <ul class="depth2">
+                                <li><a href="#">블로그</a></li>
+                                <li><a href="#">Notion 학술관</a></li>
+                                <li><a href="#">도움말 센터</a></li>
+                                <li><a href="#">커뮤니티</a></li>
+                            </ul>
+                        </li>
+                        <li class="dep"><a href="#" class="drop">팀 관련</a>
+                            <ul class="depth2">
+                                <li><a href="./team-sug.html">팀 기능</a></li>
+                                <li><a href="#">팀 활용법</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">요금제</a></li>
+                    </ul>
+                </div>
+                <div class="right-menu">
+                    <ul>
+                        <li><a href="#">영업팀 문의하기</a></li>
+                        <li><a href="#">로그인</a></li>
+                        <li class="down"><a href="#">무료로 Notion 사용하기</a></li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- //Header -->
+
+
+    <!-- main visual -->
+    <section class="visual">
+        <div class="container">
+            <div class="text-area">
+                <h2>Notion</h2>
+                <h2>쉽고 빠른 노트앱</h2>
+                <p>다양한 PC, 모바일 기기에서 어디서나 노션을 사용하세요</p>
+                <div class="btn"><a href="#">시작하기</a></div>
+            </div>
+            <div class="page-area">
+                <img src="./img/mo-notion.gif" alt="Phone-mockup">
+                <img src="./img/Notion-page.gif" alt="NotionWebPage">
+            </div>
+        </div>
+    </section>
+
+    <!-- 노션 소개 -->
+    <section class="visual-intro">
+        <div class="container">
+            <article>
+                <div class="text-area-intro">
+                    <h2>노션이란?</h2>
+                    <p>메모, 문서, 지식 정리 등의<br>
+                        기능을 쉽고 빠르게<br>
+                        사용할 수 있는 노트앱입니다.</p>
+                </div>
+                <div class="img-area">
+                    <img src="./img/Notion-page.gif" alt="NotionWebPageSmall">
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- //노션 소개 -->
+
+    <!-- 노션 추천 -->
+    <section class="notion-sug">
+        <div class="full">
+            <div class="container">
+                <article>
+                    <div class="text-area-sug">
+                        <h2>노션이</h2>
+                        <p>'나에게 필요할까?' 궁금하신가요?<br>
+                            이런 사람들에게<br>
+                            노션을 추천드립니다!</p>
+                    </div>
+                    <div class="img-space">
+                        <div class="img-area">
+                            <div class="swiper mySwiper"> 
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="./img/sug-project.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./img/sug-memo.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./img/sug-schedule.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./img/sug-4.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./img/sug-5.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./img/sug-project.png" alt=""></div>
+                                </div>
+                                <!-- <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div> -->
+                                <div class="swiper-pagination" style="transform: translate(-180px,0)"></div> 
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+        watchSlidesProgress: true,
+        slidesPerView: 3,
+
+        
+        autoplay: {
+        delay: 1500,
+        disableOnInteraction: false,
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        }
+    });
+
+    
+    </script>
+    <!-- //노션 추천 -->
+
+    <!-- 노션 기능 -->
+    <section class="notion-function">
+        <div class="container-full">
+            <h2>Notion</h2>
+            <h2>다양한 기능을 하나로!</h2>
+        </div>
+        <div class="card-box">
+            <article class="card"><p>Document</p><h3>문서</h3><img src="./img/fx-icon1.png" alt="">
+                <div class="overlay">
+                    <div><p>
+                        작업, 메모, 일기 등등을 작성해보세요.<br>
+                        빠른 작성과 관리가 가능합니다.
+                        </p><a href="#">자세히보기</a></div>
+                </div>
+            </article>
+            <article class="card"><p>AI</p><h3>AI</h3><img src="./img/fx-icon2.png" alt="">
+                <div class="overlay">
+                    <div><p>
+                        빅데이터 기반으로 정보를 알려드립니다.<br>
+                        글쓰기가 어렵다면 AI를 활용하세요!
+                        </p><a href="#">자세히보기</a></div>
+                </div>
+            </article>
+            <article class="card"><p>Wikis</p><h3>위키</h3><img src="./img/fx-icon3.png" alt="">
+                <div class="overlay">
+                    <div><p>
+                        모은 정보들을 공유가 가능합니다.<br>
+                        지식들을 더욱 편리하게 모아보세요.
+                    </p><a href="#">자세히보기</a></div>
+                </div>
+            </article>
+            <article class="card"><p>Calendar</p><h3>캘린더</h3><img src="./img/fx-icon4.png" alt="">
+                <div class="overlay">
+                    <div><p>
+                        체크 기능을 사용해 내가 완료한<br>
+                        스케쥴을 확인하세요.
+                        </p><a href="#">자세히보기</a></div>
+                </div>
+            </article>
+            <article class="card"><p>Projects</p><h3>프로젝트</h3><img src="./img/fx-icon5.png" alt="">
+                <div class="overlay">
+                    <div><p>프로젝트를 끝까지 관리해보세요!<br>
+                        워크스페이스들로 관리 해보세요.
+                        </p><a href="#">자세히보기</a></div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- //노션 기능 -->
+
+    <!-- 고객스토리 -->
+    <section class="notion-story">
+        <div class="container">
+            <h2>고객스토리</h2>
+            <article>
+                <div class="text-story">
+                    <h3>다양한 고객들의<br>
+                        스토리를 확인<br>
+                        해보세요</h3>
+                    <p>노션을 사용하는 기업, 개인들의<br>
+                    스토리를 확인해보세요.</p>
+                </div>
+                <div class="img-story">
+                    <img src="./img/notion-story.jpg" alt="">
+                    <div class="overlay_story">
+                        <p>
+                        여러 기업들과 개인의 이야기<br>
+                        지금 바로 확인하세요
+                        </p>
+                        <a href="#">자세히보기</a>
+                    </div>
+                </div> 
+            </article>
+        </div>
+    </section>
+    <!-- //고객스토리 -->
+
+    <!-- 노션 Ai -->
+    <section class="notion-ai">
+        <div class="container">
+            <h2>노션의</h2>
+            <article>
+                <div class="text-ai">
+                    <h3>사용자를<br>
+                        더욱<br>
+                        편리하게</h3>
+                    <p>노션 사용을 더욱 더 편리하게.<br>
+                        AI의 Q&A, 내용 요약, 표 정리 등의<br>
+                        기능을 활용해 보세요!</p>
+                </div>
+                <div class="img-ai">
+                    <img src="./img/notion-ai.jpg" alt="">
+                    <div class="overlay_story">
+                        <p>
+                        더욱 쉬우면서도 정교하게<br>
+                        AI 기능을 활용해보세요
+                        </p>
+                        <a href="#">자세히보기</a>
+                    </div>
+                </div> 
+            </article>
+        </div>
+    </section>
+    <!-- //노션 Ai -->
+
+    <!-- 노션 팀기능 -->
+    <section class="notion-team">
+        <div class="container">
+            <h2>노션의</h2>
+            <article>
+                <div class="img-team">
+                    <img src="./img/team1.png" alt="">
+                    <img src="./img/team2.png" alt="">
+                    <div class="team-img">
+                        <img src="./img/team3.gif" alt="">
+                        <a href="./team-sug.html" class="team-button">자세히보기</a>
+                    </div>
+                </div> 
+            </article>
+        </div>
+    </section>
+    <!-- //노션 팀기능 -->
+
+    <!-- 노션과 함께하는 사람들 -->
+    <section class="notion-together">
+        <div class="container">
+            <div class="img-box"><h2>노션과 함께 하는 사람들</h2>
+                <div class="box-text"><h3><span class="num1">0</span>+</h3><p>함께하는 국가</p></div>
+                <div class="box-text"><h3><span class="num2">0</span>+</h3><p>노션 이용자 수</p></div>
+                <div class="box-text"><h3><span class="num3">0</span>+</h3><p>노션 구독자 수</p></div>
+            <img src="./img/notion-together.jpg" alt=""></div>
+        </div>
+        <script src="jquery.color.min.js"></script>
+        <script src="./js/jquery.animateNumber.min.js"></script>
+
+        <script>
+            var decimal_places = 0;  // 소수점 자릿수 없음
+            var decimal_factor = Math.pow(10, decimal_places);
+            var animationExecuted = false;  // 애니메이션 실행 여부를 추적하는 변수
+          
+            $(document).scroll(function() {
+              // 애니메이션이 아직 실행되지 않았고, 스크롤 위치가 3100px 이상일 때
+              if (!animationExecuted && $(this).scrollTop() > 7700) {
+                $('.num1').animateNumber(
+                  {
+                    number: 50 * decimal_factor,  // 50 설정
+                    numberStep: function(now, tween) {
+                      var floored_number = Math.floor(now) / decimal_factor,
+                          target = $(tween.elem);
+          
+                      // 소수점 처리 없이 정수 출력
+                      target.text(floored_number.toLocaleString() + '');  // 천 단위 구분을 위해 toLocaleString() 사용
+                    }
+                  },
+                  {
+                    easing: 'swing',
+                    duration: 3000  // 3초 동안 카운트
+                  }
+                );
+
+                $('.num2').animateNumber(
+                  {
+                    number: 30000000 * decimal_factor,  // 30,000,000 설정
+                    numberStep: function(now, tween) {
+                      var floored_number = Math.floor(now) / decimal_factor,
+                          target = $(tween.elem);
+          
+                      // 소수점 처리 없이 정수 출력
+                      target.text(floored_number.toLocaleString() + '');  // 천 단위 구분을 위해 toLocaleString() 사용
+                    }
+                  },
+                  {
+                    easing: 'swing',
+                    duration: 3000  // 3초 동안 카운트
+                  }
+                );
+                $('.num3').animateNumber(
+                  {
+                    number: 4000000 * decimal_factor,  // 4,000,000 설정
+                    numberStep: function(now, tween) {
+                      var floored_number = Math.floor(now) / decimal_factor,
+                          target = $(tween.elem);
+          
+                      // 소수점 처리 없이 정수 출력
+                      target.text(floored_number.toLocaleString() + '');  // 천 단위 구분을 위해 toLocaleString() 사용
+                    }
+                  },
+                  {
+                    easing: 'swing',
+                    duration: 3000  // 3초 동안 카운트
+                  }
+                );
+                animationExecuted = true;  // 애니메이션이 실행되었으므로 플래그를 true로 설정
+              }
+            });
+          </script>
+
+    </section>
+    <!-- //노션과 함께하는 사람들 -->
+
+    <!-- 노션활용법 -->
+    <section class="notion-sol">
+        <div class="container-full">
+            <h2>Notion</h2>
+            <h2>이렇게 사용하세요!</h2>
+        </div>
+        <div class="card-box">
+            <article class="card"><img src="./img/sol-memo.png" alt="">
+                <div class="overlay1">       
+                    <h3>메모하기</h3>
+                </div>
+                <div class="overlay2"> 
+                    <p>
+                    작업, 메모, 일기 등등을 작성해보세요.<br>
+                    빠른 작성과 더불어 관리도 편리하게 할 수<br>
+                    있습니다.</p>
+                    <a href="#">자세히보기</a>
+                </div>
+            </article>
+            <article class="card"><img src="./img/sol-schedule.png" alt="">
+                <div class="overlay1">
+                    <h3>스케줄 관리</h3>
+                </div>
+                    <div class="overlay2"> 
+                        <p>
+                        스케줄을 쉽게 작성할 수 있으며, 스케줄<br>
+                        시간이 되면 알림창으로 알려줍니다.<br>
+                        스케줄을 완료하면 체크 기능을 사용<br>
+                        하여 확인 가능합니다.</p>
+                        <a href="#" class="card-line">자세히보기</a>
+                    </div>
+            </article>
+            <article class="card"><img src="./img/sol-project.png" alt="">
+                <div class="overlay1">
+                    <h3>프로젝트 관리</h3>
+                </div>
+                <div class="overlay2"> 
+                    <p>
+                    워크스페이스들로 작업 관리도 가능합니다.<br>
+                    프로젝트 관련 기능으로 더욱 효율적이고<br>
+                    빠르게 프로젝트를 완성해보세요.</p>
+                    <a href="#">자세히보기</a>
+                </div>
+                
+            </article>
+            <article class="card"><img src="./img/sol-class.png" alt="">
+                <div class="overlay1">
+                    <h3>강의 내용 정리</h3>
+                </div>
+                <div class="overlay2">
+                    <p>
+                    강의 내용을 더욱 간단하고 명확하게 정리<br>
+                    하고 싶다면 Ai 기능을 활용해보세요!<br>
+                    </p><a href="#">자세히보기</a>
+                </div>
+            </article>
+            <article class="card"><img src="./img/sol-recipe.png" alt="">
+                <div class="overlay1">
+                    <h3>레시피 등록하기</h3>
+                </div>
+                <div class="overlay2">
+                    <p>
+                    등록한 레시피가 많아져 찾기가 어려워<br>
+                    지신다면 검색 기능을 활용해보세요.<br>
+                    키워드만 검색하셔도 충분합니다.</p>
+                    <a href="#">자세히보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- //노션활용법 -->
+
+    <!-- //main visual -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="foot">
+            <div class="container">
+                <div class="lang-btn">
+                    <img src="./img/lang.png" alt="">
+                    <ul>
+                        <li>한국어</li>
+                        <li>영어</li>
+                        <li>일본어</li>
+                    </ul>
+                </div>
+                <nav class="foot-menu">
+                    <ul>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보 처리방침</a></li>
+                        <li><a href="#">e-mail 보내기</a></li>
+                        <li><a href="#">서비스 상태</a></li>
+                    </ul>
+                </nav>
+                <small>© 2024 Notion Labs, Inc.</small>
+            </div>
+        </div>
+    </footer>
+     <!-- //Footer -->
+</body>
+</html>

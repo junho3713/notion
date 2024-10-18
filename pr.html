@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        /* 헤더 */
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul, ol, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    cursor: pointer;
+}
+address {
+    font-style: normal;
+}
+
+.header {
+    width: 100%;
+    background-color: white;
+    height: 75px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    margin-bottom: 136px;
+}
+.header h1 {
+    margin-top: 16px;
+    margin-left: 98px;
+    width: 32px;
+    display: flex;
+    position: relative;
+    left: 0;
+}
+
+/* 중간 메뉴 */
+
+.gnb {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+
+}
+.gnb .middle-menu > ul{
+    display: flex;
+    
+}
+.gnb .middle-menu > ul li a {
+    line-height: 40px;
+    height: 40px;
+}
+.gnb ul > li a{
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.gnb .middle-menu > ul li a:hover {
+    border-radius: 10px;
+    background-color: #C8DDFF;
+}
+.gnb .right-menu > ul li a:hover {
+    border-radius: 10px;
+    background-color: #C8DDFF;
+}
+
+.gnb ul > li .drop {
+    
+    padding-right: 20px;
+
+}
+
+.drop::after {
+    content: "";
+    background: url(../img/dropbar.png) no-repeat ;
+    width: 9px;
+    height: 6px;
+    display: block;
+   
+    top: 45%;
+    right: 4px;
+    transition: 0.3s;
+}
+.middle-menu ul > li:hover .drop::after{
+    transform: rotate(180deg);
+}
+
+ .depth2{
+    
+    top: 30px;
+    width: 150px;
+    height: auto;
+    display: none;
+} 
+ /* .gnb ul li > a{
+    position: relative;
+}  */
+.depth2 li {
+   
+    width: 160px;
+    
+    border-radius: 0;
+    transition: 0.3s;   
+
+    
+}
+.depth2 li a {
+    width: 160px;
+    background-color: white;
+    line-height: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #262626;
+    transition: 0.3s;   
+    display: block;
+    padding-left: 20px;
+}
+.depth2 li a:hover {
+    background-color: #C8DDFF;
+    border-radius: 0;
+   
+}
+.depth2 li:hover {
+    background-color: #C8DDFF;
+    border-radius: 0;
+   
+}
+.middle-menu ul > li:hover .depth2{
+    position: absolute;
+    display: block;
+    top: 40px;
+}
+.middle-menu ul > li:hover .depth2 li a{
+    display: block;
+}
+.middle-menu ul > li:hover .depth2 li{
+    display: block;
+}
+
+.gnb ul li > a{
+    display: block;
+}
+
+
+.gnb .middle-menu{
+    position: relative;
+    right: 50%;
+
+}
+
+
+
+/* //중간 메뉴 */
+
+/* 섹션 */
+
+.con { 
+    width: 100%;
+    height: 700px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 75px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1><a href="./index.html"><img src="./img/notion-icon.png" alt=""></a></h1>
+        <nav class="gnb">
+            <div class="middle-menu">
+                <ul>
+                    <li><a href="#">서비스 소개</a></li>
+                    <li><a href="#" class="drop">기능</a>
+                        <ul class="depth2">
+                            <li><a href="#">기능</a></li>
+                            <li><a href="#">고객스토리</a></li>
+                            <li><a href="#">자주 쓰는 툴</a></li>
+                            <li><a href="#">새로운 기능</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">활용법</a></li>
+                    <li><a href="#" class="drop">자료</a>
+                        <ul class="depth2">
+                            <li><a href="#">블로그</a></li>
+                            <li><a href="#">Notion 학술관</a></li>
+                            <li><a href="#">도움말 센터</a></li>
+                            <li><a href="#">커뮤니티</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="drop">팀 관련</a>
+                        <ul class="depth2">
+                            <li><a href="./team-sug.html">팀 기능</a></li>
+                            <li><a href="#">팀 활용법</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">요금제</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="con">
+            <h2>컨테이너 박스</h2>
+        </div>
+    </section>
+</body>
+</html>

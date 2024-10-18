@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 기능 - 노션</title>
+    <link rel="stylesheet" href="./css/reset.css"> 
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/team-sug.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js" integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg=" crossorigin="anonymous"></script>
+</head>
+<script>
+    $(function(){
+        // 드롭다운 메뉴 클릭 시 토글 처리
+        $('.dep > a').click(function(event) {
+            event.preventDefault(); // <a> 태그의 기본 동작 방지
+
+            var $this = $(this).parent();
+
+            
+            // 클릭된 메뉴가 열려 있지 않으면
+            if (!$this.hasClass('on')) {
+                $('.dep').removeClass('on').children('.depth2').stop().slideUp();
+                $this.addClass('on').children('.depth2').stop().slideDown();
+            } else {
+                $this.removeClass('on').children('.depth2').stop().slideUp();
+            }
+        });
+
+
+
+        // 메뉴 외부 클릭 시 닫기
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.dep').length) {
+                $('.dep').removeClass('on').children('.depth2').stop().slideUp();
+            }
+        });
+
+            $('.dep').click(function(event) {
+            event.stopPropagation(); // 메뉴 내부 클릭 시 외부 클릭 이벤트 전파 방지
+        });
+
+        // 호버 시 서브메뉴 보이기
+        $('.dep').hover(function() {
+            if (!$(this).hasClass('on')) {
+                $(this).children('.depth2').stop().slideDown();
+            }
+        }, function() {
+            if (!$(this).hasClass('on')) {
+                $(this).children('.depth2').stop().slideUp();
+            }
+        });
+
+s
+    });
+</script>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-wrap">
+            <div class="left-con">
+            <h1><a href="./index.html"><img src="./img/notion-icon.png" alt="Logo"></a></h1>
+            </div>
+            <div class="right-con">
+            <nav class="gnb">
+                <div class="middle-menu">
+                    <ul>
+                        <li><a href="#none">서비스 소개</a></li>
+                        <li class="dep"><a href="#" class="drop">기능</a>
+                            <ul class="depth2">
+                                <li><a href="#">기능</a></li>
+                                <li><a href="#">고객스토리</a></li>
+                                <li><a href="#">자주 쓰는 툴</a></li>
+                                <li><a href="#">새로운 기능</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">활용법</a></li>
+                        <li class="dep"><a href="#" class="drop">자료</a>
+                            <ul class="depth2">
+                                <li><a href="#">블로그</a></li>
+                                <li><a href="#">Notion 학술관</a></li>
+                                <li><a href="#">도움말 센터</a></li>
+                                <li><a href="#">커뮤니티</a></li>
+                            </ul>
+                        </li>
+                        <li class="dep"><a href="#" class="drop">팀 관련</a>
+                            <ul class="depth2">
+                                <li><a href="./team-sug.html">팀 기능</a></li>
+                                <li><a href="#">팀 활용법</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">요금제</a></li>
+                    </ul>
+                </div>
+                <div class="right-menu">
+                    <ul>
+                        <li><a href="#">영업팀 문의하기</a></li>
+                        <li><a href="#">로그인</a></li>
+                        <li class="down"><a href="#">무료로 Notion 사용하기</a></li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- //Header -->
+
+    <!-- main visual -->
+
+    <!-- 인트로 텍스트 -->
+    <section class="intro-text">
+        <div class="container">
+            <h2>Where teams work</h2>
+            <h2>better, together</h2>
+            <p>팀의 업무를 함께, 쉽게, 빠르게</p>
+        </div>
+    </section>
+    <!-- //인트로 텍스트 -->
+
+    <!-- 팀 기능 설명 -->
+    <section class="team-infor infor1">
+        <div class="container-left">
+            <article>
+                <div class="img-area">
+                    <img src="./img/team-s1.png" alt="">
+                </div>
+                <div class="text-area">
+                    <h2>빠른 프로젝트 진행</h2>
+                    <p>프로젝트 킥오프부터 완료까지 팀원 모두 같은<br>
+                        이해를 바탕으로 일하세요. 상위 프로젝트와<br>
+                        세부 업무 모두 맞춤형 간트 차트와 칸반 보드로<br>
+                        관리하세요.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 2번째 내용 -->
+
+    <section class="team-infor infor2">
+        <div class="container-right">
+            <article>
+                <div class="text-area">
+                    <h2>깔끔한 디지털 업무 공간</h2>
+                    <p>문서의 여러 버전이 혼재하는 지저분한 폴더는<br>
+                        이제 안녕. 모든 팀원이 한곳에서 필요한 정보를<br>
+                        확인하고 최고의 성과를 낼 수 있습니다.</p>
+                </div>
+                <div class="img-area">
+                    <img src="./img/team-s2.png" alt="">
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 3번째 내용 -->
+
+    <section class="team-infor infor3">
+        <div class="container-left">
+            <article>
+                <div class="img-area">
+                    <img src="./img/team-s3.png" alt="">
+                </div>
+                <div class="text-area">
+                    <h2>모두의 업무 파악이<br>
+                        쉬워지는 문서</h2>
+                    <p>회의록, 팀 목표, 프로세스 문서.<br>
+                        중요한 결정을 모두 기록하고, 누가, 언제,<br>
+                        무엇을 하는지 한눈에 파악하세요.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!--  4번째 내용-->
+
+    <section class="team-infor infor2">
+        <div class="container-right">
+            <article>
+                <div class="text-area">
+                    <h2>업무 관련 지식 정리</h2>
+                    <p>여러 업무 지식들을 한 번에 정리하세요.<br>
+                        그리고 그 지식들을 팀원들과 공유하세요.<br>
+                        팀 업무 속도를 더욱 높여줍니다.</p>
+                </div>
+                <div class="img-area">
+                    <img src="./img/team-s4.png " alt="">
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- //팀 기능 설명 -->
+
+    <!-- 부서 추천 -->
+    <section class="team-recom">
+        <h2>모든 부서에 안성맞춤</h2>
+        <div class="container-card">
+            <article>
+                <img src="./img/engin-1.png" alt="">
+                <h3>엔지니어링</h3>
+                <p>스프린트, 코딩 스타일 가이드, 버그 픽스까지<br>
+                    모든 업무를 한 곳에서 해결하고 기능을 더 빠<br>
+                    르게 런칭하세요.</p>
+            </article>
+            <article>
+                <img src="./img/produ-1.png" alt="">
+                <h3>제품</h3>
+                <p>사용자 리서치와 타부서 연계 프로젝트 모두<br>
+                     Notion 하나로 관리해 제품을 더 빠르게 런칭<br>
+                     하세요.</p>
+            </article>
+            <article>
+                <img src="./img/design-1.png" alt="">
+                <h3>디자인</h3>
+                <p>Notion에 디자인 자산, 가이드,<br>
+                    프로토타입을 모아 일관된 디자인 언어를<br>
+                    정립하세요.</p>
+            </article>
+        </div>
+    </section>
+
+      <!-- //부서 추천 -->
+
+    <!-- 템플릿 추천 -->
+    <section class="team-temp">
+        <h2>템플릿으로 시작하기</h2>
+        <div class="container-card">
+            <article>
+                <img src="./img/headspace.png" alt="">
+                <div class="overlay">
+                    <div><a href="#">자세히보기</a></div>
+                </div>
+                <h3>Headspace<br>
+                디자인 시스템</h3>
+                <p>팀과 디자인 리소스를 공유하고 협업하세요.</p>
+            </article>
+            <article>
+                <img src="./img/matchgroup.png" alt="">
+                <div class="overlay">
+                    <div><a href="#">자세히보기</a></div>
+                </div>
+                <h3>Match Group<br>
+                로드맵</h3>
+                <p>우선순위를 정리하고 팀의 비전과 목표에 집중해 보세요.</p>
+            </article>
+        </div>
+    </section>
+
+    <!--// 템플릿 추천 -->
+
+     <!-- //main visual -->
+
+     <!-- Footer -->
+     <footer>
+        <div class="foot">
+            <div class="container">
+                <div class="lang-btn">
+                    <img src="./img/lang.png" alt="">
+                    <ul>
+                        <li>한국어</li>
+                        <li>영어</li>
+                        <li>일본어</li>
+                    </ul>
+                </div>
+                <nav class="foot-menu">
+                    <ul>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보 처리방침</a></li>
+                        <li><a href="#">e-mail 보내기</a></li>
+                        <li><a href="#">서비스 상태</a></li>
+                    </ul>
+                </nav>
+                <small>© 2024 Notion Labs, Inc.</small>
+            </div>
+        </div>
+    </footer>
+     <!-- //Footer -->
+</body>
+</html>

@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.5;
+    color: #262626;
+    background-color: #FAFAFA;
+}
+
+/* 헤더 */
+
+.header {
+    width: 100%;
+    background-color: white;
+    height: 75px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.header-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.header .header-wrap .left-con {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    
+}
+.header .header-wrap .left-con h1 {
+    width: 32px;
+    left: 0;
+}
+/* 중간 메뉴 */
+.right-con {
+    width: 80%;
+    height: 100%;
+}
+
+.gnb {
+    display: flex;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.gnb .middle-menu {
+    width: 500px;
+    position: relative;
+}
+.gnb .middle-menu > ul{
+    display: flex;
+}
+.gnb .middle-menu > ul li a {
+    line-height: 40px;
+    height: 40px;
+}
+.gnb ul > li {
+    margin-right: 6px;
+}
+.gnb ul > li a{
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.gnb .middle-menu > ul li a:hover {
+    border-radius: 10px;
+    background-color: #C8DDFF;
+}
+.gnb .right-menu > ul li a:hover {
+    border-radius: 10px;
+    background-color: #C8DDFF;
+}
+
+.gnb ul > li .drop {
+    padding-right: 20px;
+
+}
+
+.drop::after {
+    content: "";
+    background: url(../img/dropbar.png) no-repeat ;
+    width: 9px;
+    height: 6px;
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: 4px;
+    transition: 0.3s;
+}
+.middle-menu ul > li:hover .drop::after,
+.middle-menu ul > li.on .drop::after{
+    transform: rotate(180deg);
+}
+
+.middle-menu ul > li {
+    position: relative;
+}
+
+.depth2{
+    position: absolute;
+    top: 40px;
+    width: 150px;
+    height: auto;
+    display: none;
+} 
+.middle-menu ul > li .depth2 {
+    position: absolute;
+    top: 100%;  /* Adjust as needed */
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+ /* .gnb ul li > a{
+    position: relative;
+}  */
+.depth2 li {
+    width: 160px;
+    display: block;
+    border-radius: 0;
+    transition: 0.3s;   
+
+    
+}
+.depth2 li a {
+    width: 160px;
+    background-color: white;
+    line-height: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #262626;
+    transition: 0.3s;   
+    display: block;
+    padding-left: 20px;
+}
+.depth2 li a:hover {
+    background-color: #C8DDFF;
+    border-radius: 0;
+   
+}
+.depth2 li:hover {
+    background-color: #C8DDFF;
+    border-radius: 0;
+   
+}
+.dep > .on a{
+    background-color: #C8DDFF;
+    border-radius: 10px;
+   
+}
+
+.middle-menu ul .on > li:hover.depth2{
+    display: block;
+}
+
+.middle-menu ul > li:hover .depth2 li a{
+    display: block;
+}
+.middle-menu ul > li:hover .depth2 li{
+    display: block;
+}
+
+.gnb ul li > a{
+    display: block;
+}
+
+
+
+.middle-menu ul > li.on .depth2,
+.middle-menu ul > li:hover .depth2 {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+
+
+/* //중간 메뉴 */
+
+/* 오른쪽 메뉴 */
+
+.gnb .right-menu{
+    display: flex;
+    padding-right: 30px;
+
+}
+.gnb .right-menu > ul{
+    display: flex;
+
+}
+.gnb .right-menu li a {
+    height: 40px;
+    line-height: 40px;
+    transition: 0.3s;
+}
+.gnb .right-menu li:nth-of-type(3) a {
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-color: #3B82F6;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+.gnb .right-menu li:nth-of-type(3) a:hover {
+    background-color: white;
+    color: #3B82F6;
+    border: 1px solid #3B82F6;
+}
+
+
+/* //헤더 */
+
+/* 푸터 */
+footer {
+    background-color: #1F2937;
+    color: white;
+}
+.foot .container {
+    height: 72px;
+    display: flex;
+    align-items: center;
+}
+.foot .container .lang-btn {
+    border-radius: 10px;
+    width: 108px;
+    height:30px;
+    position: relative;
+    left: 0;
+}
+.foot .container .lang-btn:hover {
+    cursor: pointer;
+}
+
+.foot-menu {
+    margin-left: 164px;
+}
+.foot-menu ul {
+    display: flex;
+}
+.foot-menu ul li{
+    margin-right: 70px;
+}
+.foot-menu ul li:last-child{
+    margin-right: 0;
+}
+.foot small{
+    margin-left: 100px;
+}
+.foot .foot-menu a:hover{
+    color: #3B82F6;
+}
+.foot .lang-btn{
+    transition: 0.3s;
+}
+.foot .lang-btn ul {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    background-color: white ;
+    width: 100%;
+    display: none;
+    color: #1F2937;
+}
+.foot .lang-btn ul li {
+    padding: 10px 0;
+    text-align: center;
+    transition: 0.3s;
+}
+.foot .lang-btn ul li:hover {
+    background-color: #C8DDFF;
+}
+
+.foot .lang-btn:hover ul,
+.foot .lang-btn ul:hover
+ {
+    display: block;
+}
